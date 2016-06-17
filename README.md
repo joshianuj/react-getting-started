@@ -27,3 +27,8 @@ development dependencies
 npm install --save-dev webpack babel-preset-react
 npm install --save-dev webpack-dev-server babel-loader babel-core babel-preset-es2015
 ```
+
+webpack contents
+```
+npm install --save-dev css-loader style-loader webpack-merge html-webpack-plugin
+````
