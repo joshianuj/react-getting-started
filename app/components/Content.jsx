@@ -3,14 +3,13 @@ import React from 'react';
 //components
 import TodoMain from './todo/TodoMain';
 
-//constants
-import appConstants  from '../constants/appConstants';
+import initialTodo from './initialTodo.json';
 
 export default class Content extends React.Component {
   render() {
     return (
       <div className="header">
-        <TodoMain todos = {appConstants.initialTodoList} />
+        <TodoMain todos = {initialTodo.todo} />
       </div>
     )
   }

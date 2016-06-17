@@ -8,20 +8,31 @@ export default class TodoMain extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { todos: this.props.todos || []};
+    this.state = {todos: this.props.todos || []};
     this.addTodo = this.addTodo.bind(this);
+    this.changeTodo = this.changeTodo.bind(this);
   }
   
   addTodo(item){
-    this.setState({todos: this.state.todos.concat([item])});
+    this.setState({todos: this.state.todos.concat([{
+      name: item,
+      completed: false
+    }]
+    )});
   }
 
-  render () {
+  changeTodo(index){
+    var temp = this.state.todos[index];
+    temp.completed = !temp.completed;
+    this.setState({todos: this.state.todos});
+  }
+
+  render() {
     return (
-      <div>
+      <div className="container">
         <h3>TODO List</h3>
-        <TodoRow items={this.state.todos} />
-        <TodoInput addTodo={this.addTodo} />
+        <TodoRow items={this.state.todos} changeTodo={this.changeTodo}/>
+        <TodoInput addTodo={this.addTodo}/>
       </div>
     );
   }
@@ -29,4 +40,4 @@ export default class TodoMain extends React.Component {
 
 TodoMain.propTypes = {
   todos: React.PropTypes.array
-}
+};

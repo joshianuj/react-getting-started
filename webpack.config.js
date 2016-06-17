@@ -33,6 +33,10 @@ var common = {
         test: /\.jsx?$/,
         loaders: ['react-hot', 'babel'],
         include: APP_PATH
+      },
+      {
+        test: /.json?$/,
+        loader: 'json'
       }
     ]
   },

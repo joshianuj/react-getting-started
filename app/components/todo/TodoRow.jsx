@@ -1,17 +1,19 @@
 import React from 'react';
 
 export default class TodoRow extends React.Component {
-  render () {
+  render() {
     const createItem = (item, index) => {
       return (
-        <li key={index}>{item}</li>
+        <li key={index}>
+          <input type="checkbox" id={index} checked={item.completed} onChange={()=>this.props.changeTodo(index)}/>
+          <label class="toggle" for={index}>{item.name}</label>
+        </li>
       );
     };
-
-    return <ul>{this.props.items.map(createItem)}</ul>
+    return <ul className="todo-list">{this.props.items.map(createItem)}</ul>
   }
 };
 
 TodoRow.propTypes = {
   items: React.PropTypes.array.isRequired
-}
+};
