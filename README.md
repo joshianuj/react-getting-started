@@ -30,5 +30,5 @@ npm install --save-dev webpack-dev-server babel-loader babel-core babel-preset-e
 
 webpack contents
 ```
-npm install --save-dev css-loader style-loader webpack-merge html-webpack-plugin
+npm install --save-dev css-loader style-loader webpack-merge html-webpack-plugin react-hot-loader
 ````
