@@ -14,10 +14,13 @@ var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 //   './assets/build': './app/index.jsx'
 // }
 var common = {
-  entry: APP_PATH,
+  entry: {
+    app: APP_PATH,
+    vendor: ['react', 'react-dom']
+  },
   output: {
     path: BUILD_PATH,
-    filename: 'build.js'
+    filename: 'build.[name].js'
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
@@ -31,7 +34,7 @@ var common = {
       },
       {
         test: /\.jsx?$/,
-        loaders: ['react-hot', 'babel'],
+        loaders: ['babel'],
         include: APP_PATH
       },
       {
@@ -44,6 +47,13 @@ var common = {
     new HtmlwebpackPlugin({
       title: 'React Getting Started',
       filename: 'index.html'
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor'
+    }),
+    new webpack.ProvidePlugin({
+      React: "react",
+      ReactDOM: "react-dom"
     })
   ]
 };
@@ -56,9 +66,6 @@ if(TARGET === 'start' || !TARGET) {
       hot: true,
       inline: true,
       progress: true
-    },
-    plugins: [
-      new webpack.HotModuleReplacementPlugin()
-    ]
+    }
   });
 }
