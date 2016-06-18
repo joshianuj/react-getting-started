@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default class TodoRow extends React.Component {
   render() {
     const createItem = (item, index) => {

@@ -1,5 +1,3 @@
-import React from 'react';
-
 //components
 import TodoMain from './todo/TodoMain';
 
