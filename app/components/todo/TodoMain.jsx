@@ -1,8 +1,7 @@
-//components
 import TodoRow from './TodoRow';
 import TodoInput from './TodoInput';
 
-export default class TodoMain extends React.Component {
+class TodoMain extends React.Component {
 
   constructor(props) {
     super(props);
@@ -11,15 +10,17 @@ export default class TodoMain extends React.Component {
     this.changeTodo = this.changeTodo.bind(this);
   }
 
-  addTodo(item){
-    this.setState({todos: this.state.todos.concat([{
-      name: item,
-      completed: false
-    }]
-    )});
+  addTodo(item) {
+    this.setState({
+      todos: this.state.todos.concat([{
+          name: item,
+          completed: false
+        }]
+      )
+    });
   }
 
-  changeTodo(index){
+  changeTodo(index) {
     var temp = this.state.todos[index];
     temp.completed = !temp.completed;
     this.setState({todos: this.state.todos});
@@ -34,8 +35,10 @@ export default class TodoMain extends React.Component {
       </div>
     );
   }
-};
+}
 
 TodoMain.propTypes = {
   todos: React.PropTypes.array
 };
+
+export default TodoMain;

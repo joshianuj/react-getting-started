@@ -1,4 +1,4 @@
-export default class TodoRow extends React.Component {
+class TodoRow extends React.Component {
   render() {
     const createItem = (item, index) => {
       return (
@@ -10,8 +10,10 @@ export default class TodoRow extends React.Component {
     };
     return <ul className="todo-list">{this.props.items.map(createItem)}</ul>
   }
-};
+}
 
 TodoRow.propTypes = {
   items: React.PropTypes.array.isRequired
 };
+
+export default TodoRow;

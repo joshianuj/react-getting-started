@@ -1,4 +1,4 @@
-export default class TodoInput extends React.Component {
+class TodoInput extends React.Component {
 
   constructor(props) {
     super(props);
@@ -27,4 +27,6 @@ export default class TodoInput extends React.Component {
       </form>
     );
   }
-};
+}
+
+export default TodoInput;
