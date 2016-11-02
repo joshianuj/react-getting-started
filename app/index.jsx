@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import App from './components/App';
 
-//assets
+// Assets
 import './assets/css/main.css';
 
 const app = document.createElement('div');
